@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/* Base styles */
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --background-dark: #0f172a;
+  --glass-bg: rgb(255 255 255 / 10%);
+  --glass-border: rgb(255 255 255 / 20%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background-dark);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Glassmorphism utilities */
+@utility glass {
+  background: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 15%);
+}
+
+@utility glass-dark {
+  background: rgb(0 0 0 / 40%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 10%);
+}
+
+/* Camera video styling */
+.camera-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(1);
+
+  /* Back camera, no flip */
+}
+
+.camera-video.front {
+  transform: scaleX(-1);
+
+  /* Front camera, mirror */
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+
+/* Scanning line animation */
+.scanning-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  animation: scanning 2s ease-in-out infinite;
+}
+
+@keyframes scanning {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    top: 100%;
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+/* Capture button pulse animation */
+.capture-btn-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgb(59 130 246 / 50%);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+}
+
+/* Wave animation bars */
+.wave-bar {
+  width: 8px;
+  height: 32px;
+  background: linear-gradient(180deg, #60a5fa, #3b82f6);
+  border-radius: 4px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes wave {
+
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(2);
+  }
+}
+
+/* Result card slide up */
+.result-card {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* Safe area padding for notched phones */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(255 255 255 / 10%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 30%);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 50%);
+}
+
+.animate-scan {
+  animation: scanning 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
