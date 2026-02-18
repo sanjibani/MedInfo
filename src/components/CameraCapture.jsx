@@ -140,7 +140,7 @@ function CameraCapture({ onCapture, isCapturing, onOpenCabinet }) {
                 {/* Instructions */}
                 <div className="text-center mb-8 pointer-events-none">
                     <p className="text-white/90 font-medium text-sm drop-shadow-md">
-                        {isCapturing ? 'Analyzing medicine...' : 'Position medicine in frame'}
+                        {isCapturing ? '🔍 Decding medicine details...' : '✨ Point at any medicine to reveal its secrets'}
                     </p>
                 </div>
 

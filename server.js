@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Increase limit for base64 images
 app.use(express.json({ limit: '10mb' }));
