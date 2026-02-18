@@ -2,7 +2,7 @@
 
 A mobile-responsive Progressive Web App that uses AI vision to identify medicines and display their information instantly.
 
-![MediInfo Demo](https://via.placeholder.com/600x400/0f172a/3b82f6?text=MediInfo+Demo)
+![MediInfo Demo Mobile](public/screenshots/landing-mobile.png)
 
 ## ✨ Features
 
